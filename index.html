@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome To Joe's Hotdog</title>
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: burlywood;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Joe's Hotdog Stand</h1>
+            <hr>
+        </header>
+        <article>
+            <section>
+                <div>
+                    <img src="logo.png" class="image" width="360px">
+                    <p>Num Hotdogs ($3.75/item): <span class="numbers" id="num-hotdogs"></span></p>
+                    <p>Num Fries ($2.00/item): <span class="numbers" id="num-fries"></span></p>
+                    <p>Num Sodas ($1.80/item): <span class="numbers" id="num-sodas"></span></p>
+                    <p>Discount Applied: <span class="numbers" id="discount"></span></p>
+                    <p>Subtotal: <span class="numbers" id="subtotal"></span></p>
+                    <p>Tax: <span class="numbers" id="tax"></span></p>
+                    <p style="font-weight: bold;">Final: <span class="numbers" id="final"></span></p>
+               </div>
+            </section>
+        </article>
+        <aside>
+        </aside>
+        <footer>CS20 Assignment 4: Joe's Hotdog Stand</footer>
+    </body>
+    <script language="javascript">
+        var num_hotdog, num_fries, num_sodas, subtotal, final;
+        var discount = 0;
+        var tax = 6.25;
+
+        num_hotdog = prompt("How many hotdogs do you want?", "1");
+        num_fries = prompt("How many fries do you want?", "1");
+        num_sodas = prompt("How many sodas do you want?", "1");
+
+        subtotal = (3.75 * num_hotdog) + (2.00 * num_fries) + (1.80 * num_sodas);
+
+        if (subtotal >= 20) {
+            discount = 0.1 * subtotal;
+            subtotal -= discount;
+        }
+
+        final = subtotal + (subtotal * tax / 100);
+
+        document.getElementById("num-hotdogs").innerHTML = num_hotdog;
+        document.getElementById("num-fries").innerHTML = num_fries;
+        document.getElementById("num-sodas").innerHTML = num_sodas;
+        document.getElementById("discount").innerHTML = "$";
+        document.getElementById("discount").innerHTML += discount.toFixed(2);
+        document.getElementById("subtotal").innerHTML = "$";
+        document.getElementById("subtotal").innerHTML += subtotal.toFixed(2);
+        document.getElementById("tax").innerHTML = tax.toFixed(2);
+        document.getElementById("tax").innerHTML += "%";
+        document.getElementById("final").innerHTML = "$";
+        document.getElementById("final").innerHTML += final.toFixed(2);
+    </script>
+</html>
